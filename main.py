@@ -51,6 +51,7 @@ for dir in subdir:
 
 
 # Convert the array of "temp_labels" to binary class matrix
+# Likely to extend to more classes.
 labels = tf.keras.utils.to_categorical(temp_labels,num_classes=2)
 
 
@@ -113,6 +114,7 @@ model.add(tf.keras.layers.Dropout(0.5))
 
 # Adding the final fully connected layer with softmax activation
 # The output of this layer gives the probability classifying the mountain bikes and the road bikes
+# Note: Softmax in case I want to add more classes. Don't want to right now.
 model.add(tf.keras.layers.Dense(units=2, activation='softmax'))
 
 # Configuring the model for training
